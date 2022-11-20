@@ -10,6 +10,7 @@ import FavouriteScreen from './screens/FavouriteScreen';
 import MealistScreen from './screens/MealistScreen';
 import MealDetailScreen from './screens/MealDetailScreen';
 import NavIcon from './components/ui/NavIcon';
+import ContextProvider from './contexts/ContextProvider';
 
 
 
@@ -66,6 +67,7 @@ const DrawerNavigation = ()=>{
 export default function App() {
   return (
     <>
+    <ContextProvider>
     <NavigationContainer>
       <Stack.Navigator
        screenOptions={{
@@ -86,6 +88,7 @@ export default function App() {
         <Stack.Screen name='MealDetail' component={MealDetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
+    </ContextProvider>
     </>
   );
 }
