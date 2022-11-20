@@ -8,7 +8,6 @@ import { MEALS } from '../data/dummy-data'
 
 function MealDetailScreen({route,navigation}) {
   const  { addFavId,removeFavId,favIDS } = useStateContext();
-  const [ activefav,setActiveFav ] = useState(false)
 
   const mealID = route.params.mealID
   const meal = MEALS.find((meal)=>meal.id === mealID)
@@ -22,10 +21,6 @@ function MealDetailScreen({route,navigation}) {
     }
   }
 
-  // useEffect(() => {
-  //   setActiveFav(favStatus)
-  // }, [activefav])
-  
 
   useLayoutEffect(() => {
       const meal = MEALS.find((meal)=>meal.id === mealID)
@@ -33,7 +28,7 @@ function MealDetailScreen({route,navigation}) {
         title:meal.title,
         headerRight:()=> <StarIcon size={24} color="white" active={favStatus}  onPress={favHandler}   />
       })
-  }, [])
+  }, [favStatus,navigation])
 
   return (
      <MealDetail  meal={meal} />
