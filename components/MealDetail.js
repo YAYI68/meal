@@ -14,8 +14,8 @@ const MealDetail = ({meal}) => {
             <View style={styles.stepContainer}>
               <Text style={styles.subTitle}>Ingredients</Text>
             </View>
-            {meal.ingredients?.map((ingredient)=>(
-                <View style={styles.subContent}>
+            {meal.ingredients?.map((ingredient,index)=>(
+                <View style={styles.subContent} key={index}>
                     <Text style={styles.content}>{ingredient}</Text>
                 </View>
             ))    
@@ -24,7 +24,7 @@ const MealDetail = ({meal}) => {
               <Text style={styles.subTitle}>Steps</Text>
             </View>
             {meal.steps?.map((step)=>(
-                <View style={styles.subContent}>
+                <View style={styles.subContent} key={index}>
                     <Text style={styles.content}>{step}</Text>
                 </View>
             ))    
